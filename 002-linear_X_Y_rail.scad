@@ -4,10 +4,15 @@ License Creative Commons
 
 Object: Linear rail for X or Y
 */
-color([90, 90, 90])
+include <999-parameters.scad>
+
+module linearRail(L)
 {
-	rotate(a=[0,90,0])
+	color([90, 90, 90])
 	{
-	cylinder(h = 400, r=16, center=true);
+		rotate(a=[90,90,0])
+		{
+		cylinder(h = L, r=YLinearRailDiameter / 2, center=true);
+		}
 	}
 }

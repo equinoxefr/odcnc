@@ -4,7 +4,9 @@ License Creative Commons
 
 Object: Base
 */
+include <999-parameters.scad>
 
-
-cube(size = [500,500,15], center = true);
-
+module base()
+{
+	cube(size = [baseX,baseY,baseHeight], center = false);
+}
