@@ -9,6 +9,7 @@ include <999-parameters.scad>
 include <001-base.scad>
 include <002-linear_X_Y_rail.scad>
 include <003-linear_mount.scad>
+include <005-X-Axis.scad>
 
 // Draw base
 base();
@@ -33,3 +34,6 @@ translate([40,YLinearRailLength/2+13,28+baseHeight])
 // Draw right rail
 translate([baseX-100,YLinearRailLength/2+13,28+baseHeight])
 	linearRail(YLinearRailLength);
+
+translate([200+22,400,15+3])
+	XAxis();

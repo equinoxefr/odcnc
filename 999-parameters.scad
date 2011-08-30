@@ -17,3 +17,6 @@ YLinearRailLength=400;
 
 //FOOTS
 footHeight=3;
+
+// X Axis
+XAxisMaterialHeight=15;
