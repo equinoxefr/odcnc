@@ -1,9 +1,9 @@
 use <SBR16.scad>;
 
-function yposition() = 134; // valid range 0-210
+function xposition() = 134; // valid range 0-210
 
 module xrail() {
-	translate([0,-yposition()+150-22.5,45]) {
+	translate([0,-xposition()+150-22.5,45]) {
 		translate([0,-45,0]) {
 			SBR16UU();
 		}
@@ -42,7 +42,7 @@ module xrail() {
 }
 
 module xzplate() {
-	translate([yposition(),-60,0]) {
+	translate([xposition(),-60,0]) {
 		rotate([90,0,0]) {
 			translate([0,0,-7.5]) {
 				dxf_linear_extrude(file="dxf/xaxis.dxf",layer="1",height=15,center=true,$fn=100);
