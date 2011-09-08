@@ -1,3 +1,4 @@
+function tool_offset() = 35;
 module dremel_lower_mount() {
 	difference(){
 		rotate([90,0,0]) {
