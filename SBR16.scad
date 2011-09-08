@@ -1,8 +1,11 @@
+function SBR16UU_size() = 45;
+function assembled_rail_height() = 45;
+
 module SBR16UU() {
 	difference() {
 		// main body
 		translate([0,0,-16.5]) {
-			cube(size = [45,45,33], center = true);
+			cube(size = [SBR16UU_size(), SBR16UU_size(), 33], center = true);
 		}
 		// mounting holes (m5, rectangle 30x32)
 		translate([0,0,-10]) {
