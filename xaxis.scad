@@ -1,6 +1,6 @@
 use <SBR16.scad>;
 
-function yposition() = $t*210; // valid range 0-210
+function xposition() = (1-(2*$t-1)*(2*$t-1))*210; // valid range 0-210
 function xplates_thickness() = 15;
 
 function xrails_spacing() = 100;
@@ -8,7 +8,7 @@ function xrails_length()  = 300;
 function xplate_width() = 400;
 
 module xrail() {
-	translate([0,-yposition()+xrails_length()/2-SBR16UU_size()/2,assembled_rail_height()]) {
+	translate([0,-xposition()+xrails_length()/2-SBR16UU_size()/2,assembled_rail_height()]) {
 		translate([0,-SBR16UU_size(),0]) {
 			SBR16UU();
 		}
@@ -49,7 +49,7 @@ module xrail() {
 }
 
 module xzplate() {
-	translate([yposition(),-xplates_thickness()-assembled_rail_height(),0]) {
+	translate([xposition(),-xplates_thickness()-assembled_rail_height(),0]) {
 		rotate([90,0,0]) {
 			translate([0,0,-xplates_thickness()/2]) {
 				dxf_linear_extrude(file="dxf/xaxis.dxf",layer="1",height=xplates_thickness(),center=true,$fn=100,convexity=10);

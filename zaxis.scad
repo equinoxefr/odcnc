@@ -3,7 +3,7 @@ use <stepper_assembly.scad>;
 use <bearing_support.scad>;
 use <dremel_mount.scad>;
 
-function zposition() = $t*110; // valid range 0-110
+function zposition() = (1-(2*$t-1)*(2*$t-1))*110/2; // valid range 0-110
 function zplates_thickness() = 15;
 
 zrails_spacing = 135;
