@@ -12,7 +12,7 @@ module nsc_housing ()
 		{
 		// Translate and extrude profile.
 		translate([-7,0,-5])
-		dxf_linear_extrude(file="PROFILES/SUPPORT_DOUILLE_PROFIL.dxf",layer="profil",height=44,$fn=200);
+		dxf_linear_extrude(file="PROFILES/SUPPORT_DOUILLE_PROFIL.dxf",layer="profil",height=44,$fn=200,convexity=10);
 
 		// drill 4 support holes.
 		rotate([90,0,0])
