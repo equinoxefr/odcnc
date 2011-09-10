@@ -6,7 +6,7 @@ use <dremel_mount.scad>;
 function zposition() = $t*110; // valid range 0-110
 function zplates_thickness() = 15;
 
-zrails_spacing = 140;
+zrails_spacing = 135;
 zrails_length  = 200;
 leadscrew_height = 30;
 bearing_supports_spacing = 210;
@@ -22,18 +22,20 @@ module zrail() {
 		scale([1, zrails_length, 1]) {
 			SBR16_rail_normalized();
 		}
-		// mounting holes
-		translate([-15,-75,0]) {
-			cylinder(r=2.5,h=6,center=false);
-		}
-		translate([15,-75,0]) {
-			cylinder(r=2.5,h=6,center=false);
-		}
-		translate([15,75,0]) {
-			cylinder(r=2.5,h=6,center=false);
-		}
-		translate([-15,75,0]) {
-			cylinder(r=2.5,h=6,center=false);
+		translate([0,0,-.5]) {
+			// mounting holes
+			translate([-15,-75,0]) {
+				cylinder(r=2.5,h=6,center=false);
+			}
+			translate([15,-75,0]) {
+				cylinder(r=2.5,h=6,center=false);
+			}
+			translate([15,75,0]) {
+				cylinder(r=2.5,h=6,center=false);
+			}
+			translate([-15,75,0]) {
+				cylinder(r=2.5,h=6,center=false);
+			}
 		}
 	}
 }
@@ -41,7 +43,7 @@ module zrail() {
 module zaxis() {
 	translate([0,-zposition(),0]) {
 		translate([0,0,-zplates_thickness()/2]) {
-			dxf_linear_extrude(file="dxf/zaxis.dxf",layer="0",height=15,center=true,$fn=100);
+			dxf_linear_extrude(file="dxf/zaxis.dxf",layer="0",height=15,center=true,$fn=100,convexity=10);
 		}
 		translate([0,zrails_length/2,0]){
 			translate([-zrails_spacing/2,0,0]) {
@@ -67,7 +69,9 @@ module zaxis() {
 		// leadscrew
 		translate([0,0,leadscrew_height]) {
 			rotate([-90,0,0]) {
-				cylinder(r=5,h=270,center=false);
+				color([.5,.5,.5]) {
+					cylinder(r=5,h=270,center=false);
+				}
 			}
 		}
 		translate([0,zplates_thickness()/2,-tool_offset()-zplates_thickness()]) {

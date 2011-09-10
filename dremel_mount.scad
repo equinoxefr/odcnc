@@ -2,7 +2,7 @@ function tool_offset() = 35;
 module dremel_lower_mount() {
 	difference(){
 		rotate([90,0,0]) {
-			dxf_linear_extrude(file="dxf/dremel_mount.dxf",layer="0",height=15,center=true,$fn=100);
+			dxf_linear_extrude(file="dxf/dremel_mount.dxf",layer="0",height=15,center=true,$fn=100,convexity=10);
 		}
 		// drill left mounting hole
 		translate([27.5,0,0]) {
@@ -22,17 +22,19 @@ module dremel_lower_mount() {
 	}
 }
 
+
+mounting_bolts_spacing = 81;
 module dremel_upper_mount() {
 	difference(){
 		rotate([90,0,0]) {
-			dxf_linear_extrude(file="dxf/dremel_mount.dxf",layer="1",height=15,center=true,$fn=100);
+			dxf_linear_extrude(file="dxf/dremel_mount.dxf",layer="1",height=15,center=true,$fn=100,convexity=10);
 		}
 		// drill left mounting hole
-		translate([42,0,0]) {
+		translate([mounting_bolts_spacing/2,0,0]) {
 			cylinder(r=2.5,h=100,center=true);
 		}
 		// drill right mounting hole
-		translate([-42,0,0]) {
+		translate([-mounting_bolts_spacing/2,0,0]) {
 			cylinder(r=2.5,h=100,center=true);
 		}
 

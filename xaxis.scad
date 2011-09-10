@@ -18,30 +18,32 @@ module xrail() {
 		scale([1, xrails_length(), 1]) {
 			SBR16_rail_normalized();
 		}
-		// mounting holes
-		translate([-15,-141,0]) {
-			cylinder(r=2.5,h=6,center=false);
-		}
-		translate([-15,141,0]) {
-			cylinder(r=2.5,h=6,center=false);
-		}
-		translate([15,-141,0]) {
-			cylinder(r=2.5,h=6,center=false);
-		}
-		translate([15,141,0]) {
-			cylinder(r=2.5,h=6,center=false);
-		}
-		translate([-15,-75,0]) {
-			cylinder(r=2.5,h=6,center=false);
-		}
-		translate([15,-75,0]) {
-			cylinder(r=2.5,h=6,center=false);
-		}
-		translate([15,75,0]) {
-			cylinder(r=2.5,h=6,center=false);
-		}
-		translate([-15,75,0]) {
-			cylinder(r=2.5,h=6,center=false);
+		translate([0,0,-.5]) {// to drill properly
+			// mounting holes
+			translate([-15,-141,0]) {
+				cylinder(r=2.5,h=6,center=false);
+			}
+			translate([-15,141,0]) {
+				cylinder(r=2.5,h=6,center=false);
+			}
+			translate([15,-141,0]) {
+				cylinder(r=2.5,h=6,center=false);
+			}
+			translate([15,141,0]) {
+				cylinder(r=2.5,h=6,center=false);
+			}
+			translate([-15,-75,0]) {
+				cylinder(r=2.5,h=6,center=false);
+			}
+			translate([15,-75,0]) {
+				cylinder(r=2.5,h=6,center=false);
+			}
+			translate([15,75,0]) {
+				cylinder(r=2.5,h=6,center=false);
+			}
+			translate([-15,75,0]) {
+				cylinder(r=2.5,h=6,center=false);
+			}
 		}
 	}
 }
@@ -50,7 +52,7 @@ module xzplate() {
 	translate([yposition(),-xplates_thickness()-assembled_rail_height(),0]) {
 		rotate([90,0,0]) {
 			translate([0,0,-xplates_thickness()/2]) {
-				dxf_linear_extrude(file="dxf/xaxis.dxf",layer="1",height=xplates_thickness(),center=true,$fn=100);
+				dxf_linear_extrude(file="dxf/xaxis.dxf",layer="1",height=xplates_thickness(),center=true,$fn=100,convexity=10);
 			}
 		}
 	}
@@ -59,7 +61,7 @@ module xzplate() {
 module xaxis() {
 	rotate([90,0,0]) {
 		translate([0,0,-xplates_thickness()/2]) {
-			dxf_linear_extrude(file="dxf/xaxis.dxf",layer="0",height=xplates_thickness(),center=true,$fn=100);
+			dxf_linear_extrude(file="dxf/xaxis.dxf",layer="0",height=xplates_thickness(),center=true,$fn=100,convexity=10);
 		}
 	}
 	xzplate();
