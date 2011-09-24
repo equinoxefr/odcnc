@@ -9,7 +9,7 @@ function zplates_thickness() = 15;
 zrails_spacing = 135;
 zrails_length  = 200;
 leadscrew_height = 30;
-bearing_supports_spacing = 210;
+bearing_supports_spacing = 220;
 
 module zrail() {
 	translate([0,zposition()+SBR16UU_size()/2-zrails_length/2,assembled_rail_height()]) {
@@ -61,7 +61,7 @@ module zaxis() {
 				}
 			}
 		}
-		translate([0,275,30]) {
+		translate([0,300,30]) {
 			rotate([0,0,180]) {
 				stepper_assembly();
 			}
@@ -70,7 +70,7 @@ module zaxis() {
 		translate([0,0,leadscrew_height]) {
 			rotate([-90,0,0]) {
 				color([.5,.5,.5]) {
-					cylinder(r=5,h=270,center=false);
+					cylinder(r=5,h=295,center=false);
 				}
 			}
 		}
